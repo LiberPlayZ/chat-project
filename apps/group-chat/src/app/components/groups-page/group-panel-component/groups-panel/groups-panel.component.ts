@@ -16,17 +16,29 @@ export class GroupsPanelComponent implements OnInit {
     private socketService: SocketIoService,
     private sharedService: SharedDataService,
     private toastService: ToastService
-  ) {}
+  ) { }
   groups?: Observable<GroupDto[]>;
+  selected_groupId: number = 0;
 
   ngOnInit(): void {
+
+    this.sharedService.selectedData$.subscribe(
+      (transferData: { data: any; event: string }) => {
+        if (transferData) {
+          if (transferData.event === 'OnGroupNameClick') {
+            this.selected_groupId = transferData.data.id;
+          }
+        }
+      });
     //TODO: unsub after once
     this.socketService.listenForMessages((data) => {
-      this.toastService.showToast(
-        ToastSeverity.INFO,
-        'You receive a new message! ',
-        `Received from ${data.groupName}`
-      );
+      if (data.message.groupId !== this.selected_groupId) {
+        this.toastService.showToast(
+          ToastSeverity.INFO,
+          'You receive a new message! ',
+          `Received from ${data.groupName}`
+        );
+      }
       this.sharedService.selectData(data.message, 'newMessages');
     });
     this.socketService.listenForTyping(
@@ -58,7 +70,6 @@ export class GroupsPanelComponent implements OnInit {
   }
 
   LeaveGroupHandle(event: number) {
-    console.log('hello from father', event);
     this.groupStore.leaveGroupUpdate(event);
   }
 }
