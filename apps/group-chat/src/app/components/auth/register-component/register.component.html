@@ -1,0 +1,31 @@
+<div class="align-items-center justify-content-center flex h-screen m-0">
+  <form
+    [formGroup]="registerForm"
+    class="w-3 my-1 mx-2 p-4 shadow-4 border-round-xl border-3 border-white"
+    (ngSubmit)="onSubmit()"
+  >
+    <h1 class="text-center">Register</h1>
+    <div *ngFor="let input of registerInputs">
+      <input-control-component
+        [controlKey]="input.controlKey"
+        [label]="input.label"
+        [type]="input.type"
+        [validators]="input.validators"
+      ></input-control-component>
+    </div>
+    <div class="text-center mt-6 w-full">
+      <p-toast />
+      <p-button
+        type="submit"
+        label="Submit"
+        styleClass="w-5"
+        iconPos="right"
+        [loading]="(loadingState | async) === 'registering' ? true : false"
+      ></p-button>
+      <p>
+        Have an account?
+        <a class="text-blue-600" [routerLink]="['/login']">Sign In </a>
+      </p>
+    </div>
+  </form>
+</div>

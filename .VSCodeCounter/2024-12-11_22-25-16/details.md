@@ -1,0 +1,170 @@
+# Details
+
+Date : 2024-12-11 22:25:16
+
+Directory c:\\Users\\dando\\Desktop\\צבא\\פרויקטים בצבא\\chat-group\\apps
+
+Total : 155 files,  17472 codes, 142 comments, 1022 blanks, all 18636 lines
+
+[Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
+
+## Files
+| filename | language | code | comment | blank | total |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| [apps/auth-backend/.env](/apps/auth-backend/.env) | Properties | 10 | 0 | 1 | 11 |
+| [apps/auth-backend/.eslintrc.json](/apps/auth-backend/.eslintrc.json) | JSON | 18 | 0 | 1 | 19 |
+| [apps/auth-backend/jest.config.ts](/apps/auth-backend/jest.config.ts) | TypeScript | 10 | 1 | 1 | 12 |
+| [apps/auth-backend/project.json](/apps/auth-backend/project.json) | JSON | 54 | 0 | 2 | 56 |
+| [apps/auth-backend/src/app/app.controller.ts](/apps/auth-backend/src/app/app.controller.ts) | TypeScript | 10 | 0 | 4 | 14 |
+| [apps/auth-backend/src/app/app.module.ts](/apps/auth-backend/src/app/app.module.ts) | TypeScript | 9 | 0 | 2 | 11 |
+| [apps/auth-backend/src/app/app.service.ts](/apps/auth-backend/src/app/app.service.ts) | TypeScript | 7 | 0 | 2 | 9 |
+| [apps/auth-backend/src/app/auth-handler/auth.controller.ts](/apps/auth-backend/src/app/auth-handler/auth.controller.ts) | TypeScript | 38 | 0 | 6 | 44 |
+| [apps/auth-backend/src/app/auth-handler/auth.module.ts](/apps/auth-backend/src/app/auth-handler/auth.module.ts) | TypeScript | 11 | 0 | 2 | 13 |
+| [apps/auth-backend/src/app/auth-handler/auth.queries.ts](/apps/auth-backend/src/app/auth-handler/auth.queries.ts) | TypeScript | 7 | 0 | 4 | 11 |
+| [apps/auth-backend/src/app/auth-handler/auth.service.ts](/apps/auth-backend/src/app/auth-handler/auth.service.ts) | TypeScript | 118 | 1 | 15 | 134 |
+| [apps/auth-backend/src/app/authentication-class-handler/authentication.class.ts](/apps/auth-backend/src/app/authentication-class-handler/authentication.class.ts) | TypeScript | 71 | 0 | 8 | 79 |
+| [apps/auth-backend/src/app/redis-handler/redis-tokens-handler.service.ts](/apps/auth-backend/src/app/redis-handler/redis-tokens-handler.service.ts) | TypeScript | 60 | 1 | 13 | 74 |
+| [apps/auth-backend/src/app/redis-handler/redis.controller.ts](/apps/auth-backend/src/app/redis-handler/redis.controller.ts) | TypeScript | 31 | 0 | 6 | 37 |
+| [apps/auth-backend/src/app/redis-handler/redis.module.ts](/apps/auth-backend/src/app/redis-handler/redis.module.ts) | TypeScript | 10 | 0 | 2 | 12 |
+| [apps/auth-backend/src/app/redis-handler/redis.provider.ts](/apps/auth-backend/src/app/redis-handler/redis.provider.ts) | TypeScript | 13 | 0 | 3 | 16 |
+| [apps/auth-backend/src/app/shared/interfaces/ngrx-store-user.interface.ts](/apps/auth-backend/src/app/shared/interfaces/ngrx-store-user.interface.ts) | TypeScript | 4 | 0 | 2 | 6 |
+| [apps/auth-backend/src/app/shared/modules/pg.module.ts](/apps/auth-backend/src/app/shared/modules/pg.module.ts) | TypeScript | 7 | 0 | 2 | 9 |
+| [apps/auth-backend/src/app/shared/queries/start-app.queries.ts](/apps/auth-backend/src/app/shared/queries/start-app.queries.ts) | TypeScript | 10 | 0 | 1 | 11 |
+| [apps/auth-backend/src/app/shared/services/pg.service.ts](/apps/auth-backend/src/app/shared/services/pg.service.ts) | TypeScript | 31 | 1 | 6 | 38 |
+| [apps/auth-backend/src/main.ts](/apps/auth-backend/src/main.ts) | TypeScript | 19 | 4 | 6 | 29 |
+| [apps/auth-backend/tests/auth.test.ts](/apps/auth-backend/tests/auth.test.ts) | TypeScript | 34 | 0 | 2 | 36 |
+| [apps/auth-backend/tsconfig.app.json](/apps/auth-backend/tsconfig.app.json) | JSON | 12 | 0 | 1 | 13 |
+| [apps/auth-backend/tsconfig.json](/apps/auth-backend/tsconfig.json) | JSON with Comments | 16 | 0 | 1 | 17 |
+| [apps/auth-backend/tsconfig.spec.json](/apps/auth-backend/tsconfig.spec.json) | JSON | 14 | 0 | 1 | 15 |
+| [apps/auth-backend/webpack.config.js](/apps/auth-backend/webpack.config.js) | JavaScript | 9 | 3 | 3 | 15 |
+| [apps/front-gateway/.env](/apps/front-gateway/.env) | Properties | 5 | 0 | 2 | 7 |
+| [apps/front-gateway/.eslintrc.json](/apps/front-gateway/.eslintrc.json) | JSON | 18 | 0 | 1 | 19 |
+| [apps/front-gateway/jest.config.ts](/apps/front-gateway/jest.config.ts) | TypeScript | 10 | 1 | 1 | 12 |
+| [apps/front-gateway/project.json](/apps/front-gateway/project.json) | JSON | 54 | 0 | 2 | 56 |
+| [apps/front-gateway/src/app/app.controller.ts](/apps/front-gateway/src/app/app.controller.ts) | TypeScript | 10 | 0 | 4 | 14 |
+| [apps/front-gateway/src/app/app.module.ts](/apps/front-gateway/src/app/app.module.ts) | TypeScript | 19 | 0 | 2 | 21 |
+| [apps/front-gateway/src/app/app.service.ts](/apps/front-gateway/src/app/app.service.ts) | TypeScript | 7 | 0 | 2 | 9 |
+| [apps/front-gateway/src/app/chat-gateway/chat-data-gateway/chat-data-gateway.controller.ts](/apps/front-gateway/src/app/chat-gateway/chat-data-gateway/chat-data-gateway.controller.ts) | TypeScript | 30 | 0 | 4 | 34 |
+| [apps/front-gateway/src/app/chat-gateway/chat-data-gateway/chat-data-gateway.service.ts](/apps/front-gateway/src/app/chat-gateway/chat-data-gateway/chat-data-gateway.service.ts) | TypeScript | 105 | 0 | 18 | 123 |
+| [apps/front-gateway/src/app/chat-gateway/chat-gateway.module.ts](/apps/front-gateway/src/app/chat-gateway/chat-gateway.module.ts) | TypeScript | 13 | 0 | 2 | 15 |
+| [apps/front-gateway/src/app/chat-gateway/chat-socket-io/chat.gateway.ts](/apps/front-gateway/src/app/chat-gateway/chat-socket-io/chat.gateway.ts) | TypeScript | 89 | 0 | 15 | 104 |
+| [apps/front-gateway/src/app/chat-gateway/redis-handler/redis-online-users.service.ts](/apps/front-gateway/src/app/chat-gateway/redis-handler/redis-online-users.service.ts) | TypeScript | 21 | 1 | 7 | 29 |
+| [apps/front-gateway/src/app/chat-gateway/redis-handler/redis.module.ts](/apps/front-gateway/src/app/chat-gateway/redis-handler/redis.module.ts) | TypeScript | 9 | 0 | 2 | 11 |
+| [apps/front-gateway/src/app/chat-gateway/redis-handler/redis.provider.ts](/apps/front-gateway/src/app/chat-gateway/redis-handler/redis.provider.ts) | TypeScript | 13 | 0 | 3 | 16 |
+| [apps/front-gateway/src/app/gateway-handler/groups-gateway/group.module.ts](/apps/front-gateway/src/app/gateway-handler/groups-gateway/group.module.ts) | TypeScript | 11 | 0 | 2 | 13 |
+| [apps/front-gateway/src/app/gateway-handler/groups-gateway/groups-gateway.controller.ts](/apps/front-gateway/src/app/gateway-handler/groups-gateway/groups-gateway.controller.ts) | TypeScript | 45 | 0 | 4 | 49 |
+| [apps/front-gateway/src/app/gateway-handler/groups-gateway/groups-gateway.service.ts](/apps/front-gateway/src/app/gateway-handler/groups-gateway/groups-gateway.service.ts) | TypeScript | 68 | 0 | 14 | 82 |
+| [apps/front-gateway/src/app/gateway-handler/middlewares/auth-middleware.ts](/apps/front-gateway/src/app/gateway-handler/middlewares/auth-middleware.ts) | TypeScript | 34 | 0 | 3 | 37 |
+| [apps/front-gateway/src/app/gateway-handler/users-gateway/users-gateway.controller.ts](/apps/front-gateway/src/app/gateway-handler/users-gateway/users-gateway.controller.ts) | TypeScript | 58 | 11 | 8 | 77 |
+| [apps/front-gateway/src/app/gateway-handler/users-gateway/users-gateway.service.ts](/apps/front-gateway/src/app/gateway-handler/users-gateway/users-gateway.service.ts) | TypeScript | 111 | 0 | 23 | 134 |
+| [apps/front-gateway/src/app/gateway-handler/users-gateway/users.module.ts](/apps/front-gateway/src/app/gateway-handler/users-gateway/users.module.ts) | TypeScript | 12 | 0 | 2 | 14 |
+| [apps/front-gateway/src/main.ts](/apps/front-gateway/src/main.ts) | TypeScript | 27 | 4 | 7 | 38 |
+| [apps/front-gateway/tsconfig.app.json](/apps/front-gateway/tsconfig.app.json) | JSON | 12 | 0 | 1 | 13 |
+| [apps/front-gateway/tsconfig.json](/apps/front-gateway/tsconfig.json) | JSON with Comments | 16 | 0 | 1 | 17 |
+| [apps/front-gateway/tsconfig.spec.json](/apps/front-gateway/tsconfig.spec.json) | JSON | 14 | 0 | 1 | 15 |
+| [apps/front-gateway/webpack.config.js](/apps/front-gateway/webpack.config.js) | JavaScript | 9 | 3 | 3 | 15 |
+| [apps/group-chat-backend/.env](/apps/group-chat-backend/.env) | Properties | 9 | 0 | 0 | 9 |
+| [apps/group-chat-backend/.eslintrc.json](/apps/group-chat-backend/.eslintrc.json) | JSON | 18 | 0 | 1 | 19 |
+| [apps/group-chat-backend/Dockerfile](/apps/group-chat-backend/Dockerfile) | Docker | 16 | 3 | 2 | 21 |
+| [apps/group-chat-backend/jest.config.ts](/apps/group-chat-backend/jest.config.ts) | TypeScript | 10 | 1 | 1 | 12 |
+| [apps/group-chat-backend/project.json](/apps/group-chat-backend/project.json) | JSON | 54 | 0 | 2 | 56 |
+| [apps/group-chat-backend/src/app/app.controller.ts](/apps/group-chat-backend/src/app/app.controller.ts) | TypeScript | 10 | 0 | 4 | 14 |
+| [apps/group-chat-backend/src/app/app.module.ts](/apps/group-chat-backend/src/app/app.module.ts) | TypeScript | 10 | 0 | 1 | 11 |
+| [apps/group-chat-backend/src/app/app.service.ts](/apps/group-chat-backend/src/app/app.service.ts) | TypeScript | 7 | 0 | 2 | 9 |
+| [apps/group-chat-backend/src/app/chat-handler/chat.controller.ts](/apps/group-chat-backend/src/app/chat-handler/chat.controller.ts) | TypeScript | 26 | 0 | 3 | 29 |
+| [apps/group-chat-backend/src/app/chat-handler/chat.module.ts](/apps/group-chat-backend/src/app/chat-handler/chat.module.ts) | TypeScript | 10 | 0 | 2 | 12 |
+| [apps/group-chat-backend/src/app/chat-handler/chat.queries.ts](/apps/group-chat-backend/src/app/chat-handler/chat.queries.ts) | TypeScript | 24 | 0 | 5 | 29 |
+| [apps/group-chat-backend/src/app/chat-handler/chat.service.ts](/apps/group-chat-backend/src/app/chat-handler/chat.service.ts) | TypeScript | 51 | 3 | 8 | 62 |
+| [apps/group-chat-backend/src/app/groups-handler/groups.controller.ts](/apps/group-chat-backend/src/app/groups-handler/groups.controller.ts) | TypeScript | 36 | 0 | 6 | 42 |
+| [apps/group-chat-backend/src/app/groups-handler/groups.module.ts](/apps/group-chat-backend/src/app/groups-handler/groups.module.ts) | TypeScript | 10 | 0 | 2 | 12 |
+| [apps/group-chat-backend/src/app/groups-handler/groups.queries.ts](/apps/group-chat-backend/src/app/groups-handler/groups.queries.ts) | TypeScript | 21 | 0 | 8 | 29 |
+| [apps/group-chat-backend/src/app/groups-handler/groups.service.ts](/apps/group-chat-backend/src/app/groups-handler/groups.service.ts) | TypeScript | 89 | 2 | 14 | 105 |
+| [apps/group-chat-backend/src/app/shared/modules/pg.module.ts](/apps/group-chat-backend/src/app/shared/modules/pg.module.ts) | TypeScript | 7 | 0 | 2 | 9 |
+| [apps/group-chat-backend/src/app/shared/queries/start-app.queries.ts](/apps/group-chat-backend/src/app/shared/queries/start-app.queries.ts) | TypeScript | 28 | 0 | 3 | 31 |
+| [apps/group-chat-backend/src/app/shared/services/pg.service.ts](/apps/group-chat-backend/src/app/shared/services/pg.service.ts) | TypeScript | 35 | 1 | 6 | 42 |
+| [apps/group-chat-backend/src/app/user-handler/user.controller.ts](/apps/group-chat-backend/src/app/user-handler/user.controller.ts) | TypeScript | 43 | 11 | 7 | 61 |
+| [apps/group-chat-backend/src/app/user-handler/user.module.ts](/apps/group-chat-backend/src/app/user-handler/user.module.ts) | TypeScript | 11 | 0 | 2 | 13 |
+| [apps/group-chat-backend/src/app/user-handler/user.queries.ts](/apps/group-chat-backend/src/app/user-handler/user.queries.ts) | TypeScript | 11 | 0 | 4 | 15 |
+| [apps/group-chat-backend/src/app/user-handler/user.service.ts](/apps/group-chat-backend/src/app/user-handler/user.service.ts) | TypeScript | 49 | 13 | 7 | 69 |
+| [apps/group-chat-backend/src/main.ts](/apps/group-chat-backend/src/main.ts) | TypeScript | 21 | 4 | 6 | 31 |
+| [apps/group-chat-backend/tsconfig.app.json](/apps/group-chat-backend/tsconfig.app.json) | JSON | 12 | 0 | 1 | 13 |
+| [apps/group-chat-backend/tsconfig.json](/apps/group-chat-backend/tsconfig.json) | JSON with Comments | 16 | 0 | 1 | 17 |
+| [apps/group-chat-backend/tsconfig.spec.json](/apps/group-chat-backend/tsconfig.spec.json) | JSON | 14 | 0 | 1 | 15 |
+| [apps/group-chat-backend/webpack.config.js](/apps/group-chat-backend/webpack.config.js) | JavaScript | 9 | 3 | 3 | 15 |
+| [apps/group-chat/.eslintrc.json](/apps/group-chat/.eslintrc.json) | JSON | 36 | 0 | 1 | 37 |
+| [apps/group-chat/Dockerfile](/apps/group-chat/Dockerfile) | Docker | 5 | 0 | 1 | 6 |
+| [apps/group-chat/jest.config.ts](/apps/group-chat/jest.config.ts) | TypeScript | 21 | 1 | 1 | 23 |
+| [apps/group-chat/project.json](/apps/group-chat/project.json) | JSON | 93 | 0 | 3 | 96 |
+| [apps/group-chat/proxy.conf.json](/apps/group-chat/proxy.conf.json) | JSON | 6 | 0 | 1 | 7 |
+| [apps/group-chat/src/app/api-endpoint/chat-frontend.service.ts](/apps/group-chat/src/app/api-endpoint/chat-frontend.service.ts) | TypeScript | 38 | 0 | 6 | 44 |
+| [apps/group-chat/src/app/api-endpoint/group-frontend.service.ts](/apps/group-chat/src/app/api-endpoint/group-frontend.service.ts) | TypeScript | 31 | 0 | 6 | 37 |
+| [apps/group-chat/src/app/api-endpoint/user-frontend.service.ts](/apps/group-chat/src/app/api-endpoint/user-frontend.service.ts) | TypeScript | 60 | 14 | 11 | 85 |
+| [apps/group-chat/src/app/app-routing.module.ts](/apps/group-chat/src/app/app-routing.module.ts) | TypeScript | 18 | 0 | 2 | 20 |
+| [apps/group-chat/src/app/app.component.html](/apps/group-chat/src/app/app.component.html) | HTML | 1 | 0 | 1 | 2 |
+| [apps/group-chat/src/app/app.component.scss](/apps/group-chat/src/app/app.component.scss) | SCSS | 0 | 0 | 1 | 1 |
+| [apps/group-chat/src/app/app.component.ts](/apps/group-chat/src/app/app.component.ts) | TypeScript | 9 | 0 | 2 | 11 |
+| [apps/group-chat/src/app/app.config.ts](/apps/group-chat/src/app/app.config.ts) | TypeScript | 6 | 0 | 2 | 8 |
+| [apps/group-chat/src/app/app.module.ts](/apps/group-chat/src/app/app.module.ts) | TypeScript | 40 | 0 | 1 | 41 |
+| [apps/group-chat/src/app/components/auth/auth-component.module.ts](/apps/group-chat/src/app/components/auth/auth-component.module.ts) | TypeScript | 28 | 0 | 1 | 29 |
+| [apps/group-chat/src/app/components/auth/login-component/login.component.html](/apps/group-chat/src/app/components/auth/login-component/login.component.html) | HTML | 35 | 0 | 1 | 36 |
+| [apps/group-chat/src/app/components/auth/login-component/login.component.ts](/apps/group-chat/src/app/components/auth/login-component/login.component.ts) | TypeScript | 63 | 0 | 5 | 68 |
+| [apps/group-chat/src/app/components/auth/register-component/register.component.html](/apps/group-chat/src/app/components/auth/register-component/register.component.html) | HTML | 31 | 0 | 1 | 32 |
+| [apps/group-chat/src/app/components/auth/register-component/register.component.ts](/apps/group-chat/src/app/components/auth/register-component/register.component.ts) | TypeScript | 57 | 0 | 4 | 61 |
+| [apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group-component-store/add-group-component-store.module.ts](/apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group-component-store/add-group-component-store.module.ts) | TypeScript | 7 | 0 | 2 | 9 |
+| [apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group-component-store/add-group-component-store.service.ts](/apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group-component-store/add-group-component-store.service.ts) | TypeScript | 51 | 3 | 14 | 68 |
+| [apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group.dialog.component.html](/apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group.dialog.component.html) | HTML | 38 | 0 | 3 | 41 |
+| [apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group.dialog.component.ts](/apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group.dialog.component.ts) | TypeScript | 54 | 0 | 6 | 60 |
+| [apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group.module.ts](/apps/group-chat/src/app/components/groups-page/add-group-dialog/add-group.module.ts) | TypeScript | 25 | 0 | 2 | 27 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/chat-component-store/chat-component-store.module.ts](/apps/group-chat/src/app/components/groups-page/chat-panel/chat-component-store/chat-component-store.module.ts) | TypeScript | 7 | 0 | 1 | 8 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/chat-component-store/chat-component-store.service.ts](/apps/group-chat/src/app/components/groups-page/chat-panel/chat-component-store/chat-component-store.service.ts) | TypeScript | 70 | 3 | 12 | 85 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/chat-panel.component.html](/apps/group-chat/src/app/components/groups-page/chat-panel/chat-panel.component.html) | HTML | 23 | 16 | 1 | 40 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/chat-panel.component.ts](/apps/group-chat/src/app/components/groups-page/chat-panel/chat-panel.component.ts) | TypeScript | 88 | 0 | 9 | 97 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/chat.module.ts](/apps/group-chat/src/app/components/groups-page/chat-panel/chat.module.ts) | TypeScript | 39 | 0 | 1 | 40 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/message-input/message-input.component.html](/apps/group-chat/src/app/components/groups-page/chat-panel/message-input/message-input.component.html) | HTML | 4 | 0 | 2 | 6 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/message-input/message-input.component.ts](/apps/group-chat/src/app/components/groups-page/chat-panel/message-input/message-input.component.ts) | TypeScript | 21 | 0 | 4 | 25 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/message-template/message-template.component.html](/apps/group-chat/src/app/components/groups-page/chat-panel/message-template/message-template.component.html) | HTML | 17 | 0 | 2 | 19 |
+| [apps/group-chat/src/app/components/groups-page/chat-panel/message-template/message-template.component.ts](/apps/group-chat/src/app/components/groups-page/chat-panel/message-template/message-template.component.ts) | TypeScript | 17 | 0 | 5 | 22 |
+| [apps/group-chat/src/app/components/groups-page/group-panel-component/group-component-store/group-component-store.service.ts](/apps/group-chat/src/app/components/groups-page/group-panel-component/group-component-store/group-component-store.service.ts) | TypeScript | 73 | 3 | 11 | 87 |
+| [apps/group-chat/src/app/components/groups-page/group-panel-component/group-component-store/groups-component-store.module.ts](/apps/group-chat/src/app/components/groups-page/group-panel-component/group-component-store/groups-component-store.module.ts) | TypeScript | 7 | 0 | 1 | 8 |
+| [apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/group-template/group-template.component.html](/apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/group-template/group-template.component.html) | HTML | 24 | 0 | 1 | 25 |
+| [apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/group-template/group-template.component.ts](/apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/group-template/group-template.component.ts) | TypeScript | 54 | 2 | 3 | 59 |
+| [apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/groups-panel.component.html](/apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/groups-panel.component.html) | HTML | 18 | 0 | 1 | 19 |
+| [apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/groups-panel.component.ts](/apps/group-chat/src/app/components/groups-page/group-panel-component/groups-panel/groups-panel.component.ts) | TypeScript | 58 | 1 | 6 | 65 |
+| [apps/group-chat/src/app/components/groups-page/group.module.ts](/apps/group-chat/src/app/components/groups-page/group.module.ts) | TypeScript | 44 | 0 | 1 | 45 |
+| [apps/group-chat/src/app/components/groups-page/groups-page.component.html](/apps/group-chat/src/app/components/groups-page/groups-page.component.html) | HTML | 11 | 0 | 2 | 13 |
+| [apps/group-chat/src/app/components/groups-page/groups-page.component.ts](/apps/group-chat/src/app/components/groups-page/groups-page.component.ts) | TypeScript | 7 | 0 | 4 | 11 |
+| [apps/group-chat/src/app/components/navbar/navbar.module.ts](/apps/group-chat/src/app/components/navbar/navbar.module.ts) | TypeScript | 34 | 0 | 1 | 35 |
+| [apps/group-chat/src/app/components/navbar/popUp-menu/custom-user-template/user-template.component.html](/apps/group-chat/src/app/components/navbar/popUp-menu/custom-user-template/user-template.component.html) | HTML | 10 | 0 | 1 | 11 |
+| [apps/group-chat/src/app/components/navbar/popUp-menu/custom-user-template/user-template.component.ts](/apps/group-chat/src/app/components/navbar/popUp-menu/custom-user-template/user-template.component.ts) | TypeScript | 9 | 0 | 1 | 10 |
+| [apps/group-chat/src/app/components/navbar/popUp-menu/menu.component.html](/apps/group-chat/src/app/components/navbar/popUp-menu/menu.component.html) | HTML | 32 | 1 | 5 | 38 |
+| [apps/group-chat/src/app/components/navbar/popUp-menu/menu.component.ts](/apps/group-chat/src/app/components/navbar/popUp-menu/menu.component.ts) | TypeScript | 76 | 0 | 8 | 84 |
+| [apps/group-chat/src/app/nx-welcome.component.ts](/apps/group-chat/src/app/nx-welcome.component.ts) | TypeScript | 906 | 0 | 2 | 908 |
+| [apps/group-chat/src/app/shared/enums/isLogging.enum.ts](/apps/group-chat/src/app/shared/enums/isLogging.enum.ts) | TypeScript | 9 | 0 | 1 | 10 |
+| [apps/group-chat/src/app/shared/guards/authentication.guard.ts](/apps/group-chat/src/app/shared/guards/authentication.guard.ts) | TypeScript | 30 | 0 | 7 | 37 |
+| [apps/group-chat/src/app/shared/index.ts](/apps/group-chat/src/app/shared/index.ts) | TypeScript | 5 | 0 | 1 | 6 |
+| [apps/group-chat/src/app/shared/models/login_user.interface.ts](/apps/group-chat/src/app/shared/models/login_user.interface.ts) | TypeScript | 5 | 0 | 2 | 7 |
+| [apps/group-chat/src/app/shared/models/transfer_group_data.interface.ts](/apps/group-chat/src/app/shared/models/transfer_group_data.interface.ts) | TypeScript | 4 | 0 | 1 | 5 |
+| [apps/group-chat/src/app/shared/models/user.interface.ts](/apps/group-chat/src/app/shared/models/user.interface.ts) | TypeScript | 4 | 0 | 3 | 7 |
+| [apps/group-chat/src/app/shared/ngrx_store/login_state/index.ts](/apps/group-chat/src/app/shared/ngrx_store/login_state/index.ts) | TypeScript | 3 | 0 | 3 | 6 |
+| [apps/group-chat/src/app/shared/ngrx_store/login_state/login.actions.ts](/apps/group-chat/src/app/shared/ngrx_store/login_state/login.actions.ts) | TypeScript | 15 | 0 | 11 | 26 |
+| [apps/group-chat/src/app/shared/ngrx_store/login_state/login.effects.ts](/apps/group-chat/src/app/shared/ngrx_store/login_state/login.effects.ts) | TypeScript | 123 | 0 | 10 | 133 |
+| [apps/group-chat/src/app/shared/ngrx_store/login_state/login.state.ts](/apps/group-chat/src/app/shared/ngrx_store/login_state/login.state.ts) | TypeScript | 81 | 0 | 8 | 89 |
+| [apps/group-chat/src/app/shared/services/sharedDataService.ts](/apps/group-chat/src/app/shared/services/sharedDataService.ts) | TypeScript | 10 | 0 | 3 | 13 |
+| [apps/group-chat/src/app/shared/sharedData.module.ts](/apps/group-chat/src/app/shared/sharedData.module.ts) | TypeScript | 7 | 0 | 3 | 10 |
+| [apps/group-chat/src/app/socket-io-endpoint/socket.service.ts](/apps/group-chat/src/app/socket-io-endpoint/socket.service.ts) | TypeScript | 58 | 0 | 9 | 67 |
+| [apps/group-chat/src/assets/themes/bootstrap4-dark-purple/theme.css](/apps/group-chat/src/assets/themes/bootstrap4-dark-purple/theme.css) | CSS | 6,243 | 2 | 221 | 6,466 |
+| [apps/group-chat/src/assets/themes/bootstrap4-light-purple/theme.css](/apps/group-chat/src/assets/themes/bootstrap4-light-purple/theme.css) | CSS | 6,243 | 2 | 221 | 6,466 |
+| [apps/group-chat/src/environments/environment.production.ts](/apps/group-chat/src/environments/environment.production.ts) | TypeScript | 7 | 0 | 1 | 8 |
+| [apps/group-chat/src/environments/environment.ts](/apps/group-chat/src/environments/environment.ts) | TypeScript | 7 | 0 | 1 | 8 |
+| [apps/group-chat/src/index.html](/apps/group-chat/src/index.html) | HTML | 18 | 0 | 1 | 19 |
+| [apps/group-chat/src/main.ts](/apps/group-chat/src/main.ts) | TypeScript | 6 | 0 | 2 | 8 |
+| [apps/group-chat/src/styles.scss](/apps/group-chat/src/styles.scss) | SCSS | 10 | 1 | 2 | 13 |
+| [apps/group-chat/src/test-setup.ts](/apps/group-chat/src/test-setup.ts) | TypeScript | 7 | 1 | 1 | 9 |
+| [apps/group-chat/src/typing.d.ts](/apps/group-chat/src/typing.d.ts) | TypeScript | 0 | 4 | 2 | 6 |
+| [apps/group-chat/tsconfig.app.json](/apps/group-chat/tsconfig.app.json) | JSON | 10 | 0 | 1 | 11 |
+| [apps/group-chat/tsconfig.editor.json](/apps/group-chat/tsconfig.editor.json) | JSON | 6 | 0 | 1 | 7 |
+| [apps/group-chat/tsconfig.json](/apps/group-chat/tsconfig.json) | JSON with Comments | 33 | 0 | 4 | 37 |
+| [apps/group-chat/tsconfig.spec.json](/apps/group-chat/tsconfig.spec.json) | JSON | 16 | 0 | 1 | 17 |
+| [apps/group-chat/webpack.config.js](/apps/group-chat/webpack.config.js) | JavaScript | 0 | 16 | 3 | 19 |
+
+[Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)

@@ -1,0 +1,55 @@
+{
+  "name": "group-chat-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/group-chat-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/group-chat-backend",
+        "main": "apps/group-chat-backend/src/main.ts",
+        "tsConfig": "apps/group-chat-backend/tsconfig.app.json",
+        "assets": ["apps/group-chat-backend/src/assets"],
+        "webpackConfig": "apps/group-chat-backend/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "group-chat-backend:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "group-chat-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "group-chat-backend:build:production"
+        }
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "load": true,
+        "metadata": {
+          "images": ["group-chat-backend"],
+          "tags": ["latest"]
+        }
+      }
+    }
+  },
+  "tags": []
+}

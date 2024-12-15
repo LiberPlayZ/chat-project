@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ../../
+      dockerfile: ./apps/group-chat/Dockerfile
+    #   args:
+    #     BACKEND_API: 'http://gateway:3000/api'
+    # environment:
+    #   - BACKEND_API=http://gatedadadadway:3000/api
+    ports:
+      - '4200:80'
+    depends_on:
+      - gateway
+    networks:
+      - my-network

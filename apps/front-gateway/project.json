@@ -1,0 +1,55 @@
+{
+  "name": "front-gateway",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/front-gateway/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/front-gateway",
+        "main": "apps/front-gateway/src/main.ts",
+        "tsConfig": "apps/front-gateway/tsconfig.app.json",
+        "assets": ["apps/front-gateway/src/assets"],
+        "webpackConfig": "apps/front-gateway/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "front-gateway:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "front-gateway:build:development"
+        },
+        "production": {
+          "buildTarget": "front-gateway:build:production"
+        }
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "load": true,
+        "metadata": {
+          "images": ["front-gateway"],
+          "tags": ["latest"]
+        }
+      }
+    }
+  },
+  "tags": []
+}

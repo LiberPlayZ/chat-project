@@ -1,0 +1,5 @@
+
+    <p-inputGroup >
+        <input  (input)="OnTyping()" type="text" pInputText placeholder="Type a message" [(ngModel)]="message" (keyup.enter)="sendMessage()  "/>
+        <button type="button" pButton icon="pi pi-send" class="pi-button-info" (click)="sendMessage()"></button>
+    </p-inputGroup>

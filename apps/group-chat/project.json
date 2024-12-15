@@ -1,0 +1,95 @@
+{
+  "name": "group-chat",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "group-chat",
+  "sourceRoot": "apps/group-chat/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+
+        "outputPath": "dist/apps/group-chat",
+    
+        "index": "apps/group-chat/src/index.html",
+        "main": "apps/group-chat/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/group-chat/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/group-chat/src/favicon.ico",
+          "apps/group-chat/src/assets"
+        ],
+        "styles": ["apps/group-chat/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/group-chat/src/environments/environment.ts",
+              "with": "apps/group-chat/src/environments/environment.production.ts"
+            }
+          ],
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "group-chat:build:production"
+        },
+        "development": {
+          "buildTarget": "group-chat:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/group-chat/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "group-chat:build"
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "load": true,
+        "metadata": {
+          "images": ["group-chat"],
+          "tags": ["latest"]
+        }
+      }
+    }
+  }
+}

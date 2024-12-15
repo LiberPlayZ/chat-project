@@ -1,0 +1,19 @@
+<div class="field grid">
+  <label [for]="controlKey" class="w-6rem">{{ label }}</label>
+  <div class="col">
+    <p-multiSelect
+      [formControlName]="controlKey"
+      [id]="controlKey"
+      placeholder="Select Users"
+      optionValue="id"
+      [optionLabel]="optionLabel || 'name'"
+      [filter]="true"
+      [virtualScroll]="true"
+      [virtualScrollItemSize]="43"
+      [lazy]="true"
+      [options]="options"
+      styleClass="w-full "
+      appendTo="body"
+    />
+  </div>
+</div>

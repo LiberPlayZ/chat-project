@@ -1,0 +1,12 @@
+<div class="field grid">
+  <label [for]="controlKey" class="w-6rem">{{ label }}</label>
+  <div class="col">
+    <input
+      [formControlName]="controlKey"
+      [id]="controlKey"
+      [type]="type || 'text'"
+      pInputText
+      class="w-full"
+    />
+  </div>
+</div>

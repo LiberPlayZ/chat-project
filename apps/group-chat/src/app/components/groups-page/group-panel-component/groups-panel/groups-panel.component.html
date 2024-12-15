@@ -1,0 +1,18 @@
+<div
+  class="w-full flex flex-column border-1 overflow-y-auto hide-scrollbar h-full"
+>
+  <div *ngIf="(groups | async)?.length === 0">
+    <h1 class="flex align-items-center justify-content-center">
+      No groups available
+    </h1>
+  </div>
+  <div *ngFor="let group of groups | async">
+    <group-custom-template
+      [group_name]="group.name"
+      [group_description]="group.description"
+      [group_id]="group.id"
+      (leaveGroupEvent)="LeaveGroupHandle($event)"
+    ></group-custom-template>
+  </div>
+  <p-toast></p-toast>
+</div>

@@ -1,0 +1,55 @@
+{
+  "name": "auth-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/auth-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/auth-backend",
+        "main": "apps/auth-backend/src/main.ts",
+        "tsConfig": "apps/auth-backend/tsconfig.app.json",
+        "assets": ["apps/auth-backend/src/assets"],
+        "webpackConfig": "apps/auth-backend/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "auth-backend:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "auth-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "auth-backend:build:production"
+        }
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "load": true,
+        "metadata": {
+          "images": ["auth-backend"],
+          "tags": ["latest"]
+        }
+      }
+    }
+  },
+  "tags": []
+}

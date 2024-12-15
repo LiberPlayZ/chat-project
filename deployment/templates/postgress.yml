@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  Postgres-Server:
+    image: postgres:15
+    container_name: Postgres-Server
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - ../volumes/postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    networks:
+      - my-network
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "sh -c 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}'",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10

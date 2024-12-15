@@ -1,0 +1,37 @@
+<!-- <div class="flex justify-content-end flex-wrap m-3 p-2 border-1 border-round bg-primary"> -->
+<div
+  class="flex justify-content-between align-items-center border-1 border-round bg-primary p-2 flex-shrink-0"
+>
+  <div class="w-3 flex justify-content-center align-items-center gap-2">
+    <div class="font-bold text-5xl">Chats</div>
+    <p-button
+      icon="pi pi-plus"
+      severity="info"
+      [rounded]="true"
+      (onClick)="openDialog()"
+    ></p-button>
+  </div>
+
+  <div class="w-7 text-center font-bold text-5xl">{{ selectedGroupName }}</div>
+  <p-menu #menu [model]="items" [popup]="true">
+    <ng-template pTemplate="start">
+      <user-template
+        [username]="(currentUser | async)?.username"
+        [role]="'user'"
+      ></user-template>
+    </ng-template>
+   
+  </p-menu>
+
+  <div class="w-2 text-right">
+    <p-button
+      (onClick)="menu.toggle($event)"
+      icon="pi pi-ellipsis-v"
+    ></p-button>
+  </div>
+</div>
+
+<add-group-dialog
+  [visible]="showDialog"
+  (dialogCLose)="handleDialogClose()"
+></add-group-dialog>

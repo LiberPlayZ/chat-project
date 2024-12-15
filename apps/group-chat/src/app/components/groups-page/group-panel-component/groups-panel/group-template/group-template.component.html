@@ -1,0 +1,24 @@
+<p-panel class="mb-1" [toggleable]="true" [collapsed]="true">
+  <ng-template pTemplate="header">
+    <div
+      class="flex align-items-center gap-2 hover:text-cyan-300 cursor-pointer"
+    >
+      <p-avatar icon="pi pi-book" pBadge value="{{ notification }}"> </p-avatar>
+      <span (click)="OnGroupNameClick()" class="font-bold text-3xl p-1">{{
+        group_name
+      }}</span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="icons">
+    <button
+      class="p-panel-header-icon p-link mr-2"
+      (click)="settings.toggle($event)"
+    >
+      <span class="pi pi-cog"></span>
+    </button>
+    <p-menu #settings id="config_menu" [model]="items" [popup]="true"></p-menu>
+  </ng-template>
+  <p id="group_description" class="m-0">
+    {{ group_description }}
+  </p>
+</p-panel>

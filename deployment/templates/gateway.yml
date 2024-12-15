@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  gateway:
+    container_name: gateway
+    restart: 'unless-stopped'
+    environment:
+      DB_HOST: Postgres-Server
+    build:
+      context: ../../
+      dockerfile: ./apps/group-chat-backend/Dockerfile
+    networks:
+      - my-network

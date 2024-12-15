@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'primeflex/primeflex.scss';
+@import 'primeng/resources/primeng.css';
+@import 'primeicons/primeicons.css';
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

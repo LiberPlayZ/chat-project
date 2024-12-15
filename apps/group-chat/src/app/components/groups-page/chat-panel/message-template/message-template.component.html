@@ -1,0 +1,18 @@
+<div
+  class="w-full flex m-1"
+  [ngClass]="{ 'justify-content-end': username !== connectedUser }"
+>
+  <div
+    [ngClass]="getClassByConnectedUser(username)"
+    class="flex flex-column shadow-2 p-2 mb-3 border-round w-4 align-content-end " style="word-wrap: break-word;"
+  >
+    <div class="flex justify-content-between mb-2">
+      <span class="font-bold text-lg">{{ username }}</span>
+      <span class="text-base"> {{ date | date : 'shortTime' }}</span>
+    </div>
+
+    <div class="" style="white-space: pre-wrap">
+      {{ text }}
+    </div>
+  </div>
+</div>

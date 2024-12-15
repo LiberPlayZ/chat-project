@@ -1,0 +1,40 @@
+<div class="card flex justify-content-center"></div>
+<form [formGroup]="addGroupForm" (ngSubmit)="onCreate()">
+  <p-dialog
+    header="Create Group"
+    [modal]="true"
+    [(visible)]="visible"
+    [closable]="true"
+    (onHide)="OnDialogHide()"
+    [style]="{ width: '20vw' }"
+  >
+    <span class="p-text-secondary block mb-5">Enter group information</span>
+    <div *ngFor="let input of addGroupInputs">
+      <input-control-component
+        [controlKey]="input.controlKey"
+        [label]="input.label"
+        [type]="input.type"
+        [validators]="input.validators"
+      ></input-control-component>
+    </div>
+    <ng-container *ngIf="vm$ | async as vm">
+      <multi-select
+        controlKey="users"
+        label="Users"
+        [options]="vm.users"
+        [optionLabel]="'username'"
+ 
+  
+      >
+      </multi-select>
+    </ng-container>
+    <div class="flex justify-content-center align-items-center gap-2 mt-5">
+      <p-button
+        label="Cancel"
+        severity="secondary"
+        (click)="visible = false"
+      ></p-button>
+      <p-button type="submit" label="Create"></p-button>
+    </div>
+  </p-dialog>
+</form>

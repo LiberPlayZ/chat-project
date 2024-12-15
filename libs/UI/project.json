@@ -1,0 +1,9 @@
+{
+  "name": "UI",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/UI/src",
+  "prefix": "group-chat",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
