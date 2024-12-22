@@ -36,4 +36,4 @@ import { ChatFrontendService } from '../../../api-endpoint/chat-frontend.service
   providers: [SocketIoService, ChatFrontendService],
   exports: [ChatPanelComponent],
 })
-export class ChatModule {}
+export class ChatModule { }

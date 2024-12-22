@@ -69,14 +69,16 @@ export class ChatPanelComponent {
     }, 500);
   }
 
-  handleMessage(message: string) {
+  handleMessage(data: { message: string, image?: string }) {
+
     let messageDto: MessageDto;
     if (this.selected_group_id) {
       messageDto = {
-        text: message,
+        text: data.message,
         username: '',
         groupId: this.selected_group_id,
         date: new Date(),
+        image: data.image
       };
       this.chatComponentStore.updateMessage(messageDto);
       setTimeout(() => {

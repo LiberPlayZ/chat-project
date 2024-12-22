@@ -1,5 +1,5 @@
 export const getGroupMessagesQuery = `
-SELECT messages.id,messages.text,messages.userid,messages.username,messages.groupid,messages.date
+SELECT messages.id,messages.text,messages.userid,messages.username,messages.groupid,messages.date,messages.image
 FROM groups 
 JOIN messages ON messages.id = ANY(groups.messages) WHERE groups.id = $1`;
 
@@ -13,7 +13,8 @@ messages (
   userid, 
   username, 
   groupid, 
-  "date"
+  "date",
+  image
 )
 values
 (
@@ -21,7 +22,8 @@ values
   $2, 
   $3, 
   $4, 
-  $5
+  $5,
+  $6
 )
 RETURNING id,text,userid,username,groupid,date`;
 

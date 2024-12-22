@@ -10,7 +10,7 @@ import {
 
 @Injectable()
 export class ChatService {
-  constructor(private readonly pgService: PgService) {}
+  constructor(private readonly pgService: PgService) { }
 
   public async getGroupMessages(
     groupId: number,
@@ -40,12 +40,14 @@ export class ChatService {
       );
 
       //add message to messages table and return creation id .
+
       let messageResult = await this.pgService.mainQuery(addMessageQuery, [
         message.text,
         message.userId,
         usernameResult.rows[0].username,
         message.groupId,
         message.date,
+        message.image ? Buffer.from(message.image, 'base64') : null
       ]);
 
       // add the message created id to the group array of messages .

@@ -1,5 +1,14 @@
-
-    <p-inputGroup >
-        <input  (input)="OnTyping()" type="text" pInputText placeholder="Type a message" [(ngModel)]="message" (keyup.enter)="sendMessage()  "/>
-        <button type="button" pButton icon="pi pi-send" class="pi-button-info" (click)="sendMessage()"></button>
-    </p-inputGroup>
+<!-- <div *ngIf="selectedImage" class="image-preview">
+    <img [src]="selectedImage" alt="Selected Image" style="max-width: 100%; max-height: 200px;" />
+</div> -->
+<p-inputGroup>
+    <p-inputGroupAddon>
+        <button type="button" pButton icon="pi pi-upload" severity="warning" (click)="fileInput.click()"></button>
+    </p-inputGroupAddon>
+    <input #fileInput type="file" accept="image/*" style="display: none" (change)="onFileSelect($event)" />
+    <input (input)="OnTyping()" type="text" pInputText placeholder="Type a message" [(ngModel)]="message"
+        (keyup.enter)="sendMessage()  " />
+    <p-inputGroupAddon>
+        <button type="button" pButton icon="pi pi-send" severity="info" (click)="sendMessage()"></button>
+    </p-inputGroupAddon>
+</p-inputGroup>

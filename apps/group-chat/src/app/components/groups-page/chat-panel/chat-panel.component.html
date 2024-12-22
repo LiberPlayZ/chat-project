@@ -7,12 +7,8 @@
     </div>
     <div class="messages">
       <div *ngFor="let msg of messages | async; let i = index">
-        <message-template
-          [username]="msg.username"
-          [text]="msg.text"
-          [date]="msg.date"
-          [connectedUser]="senderUsername | async"
-        ></message-template>
+        <message-template [username]="msg.username" [text]="msg.text" [date]="msg.date"
+          [connectedUser]="senderUsername | async" [image]="msg.image"></message-template>
         <!-- <div
           *ngIf="i + 1 === (messages | async)?.length" (ngAfterViewInit)="scrollToBottom()"
         >

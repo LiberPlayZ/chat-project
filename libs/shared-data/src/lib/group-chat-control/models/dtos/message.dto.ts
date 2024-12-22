@@ -5,4 +5,5 @@ export interface MessageDto {
   username: string;
   groupId: number;
   date: Date;
+  image?: string | null
 }

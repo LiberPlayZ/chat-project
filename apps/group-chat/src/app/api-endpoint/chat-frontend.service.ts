@@ -8,9 +8,10 @@ import { environment } from '../../environments/environment';
 export class ChatFrontendService {
   private readonly apiUrl = environment.APIKeys.BACKEND_API;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public addMessage(message: MessageDto): Observable<MessageDto> {
+
     return this.http.post<MessageDto>(
       `${this.apiUrl}/chat/addMessage`,
       message,
