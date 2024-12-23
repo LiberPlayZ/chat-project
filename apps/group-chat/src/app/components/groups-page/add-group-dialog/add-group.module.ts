@@ -17,7 +17,8 @@ import { GroupComponentStoreModule } from '../group-panel-component/group-compon
     UiComponentsModule,
     FormsModule,
     ReactiveFormsModule,
-    GroupComponentStoreModule
+    GroupComponentStoreModule,
+    
   ],
   exports: [AddGroupDialogComponent],
   providers:[]

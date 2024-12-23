@@ -22,9 +22,11 @@ export class UsersGatewayController {
   ): Promise<any> {
     const response = await this.userService.forwardLogin(loginDto);
     if (response.token) {
+      const expires = new Date();
+      expires.setDate(expires.getDate() + 1); 
       res.cookie('auth_token', response.token, {
         httpOnly: true,
-        maxAge: 60 * 60 * 1000,
+        expires: expires,
       });
     }
     return res.send(response);

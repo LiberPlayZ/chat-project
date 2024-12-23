@@ -25,6 +25,6 @@ values
   $5,
   $6
 )
-RETURNING id,text,userid,username,groupid,date`;
+RETURNING id,text,userid,username,groupid,date,image`;
 
 export const addMessageToGroupQuery = `UPDATE groups SET messages = array_append(messages,$1) WHERE id = $2`;

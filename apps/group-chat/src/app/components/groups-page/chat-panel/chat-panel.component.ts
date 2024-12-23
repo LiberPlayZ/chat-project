@@ -70,7 +70,7 @@ export class ChatPanelComponent {
   }
 
   handleMessage(data: { message: string, image?: string }) {
-
+    
     let messageDto: MessageDto;
     if (this.selected_group_id) {
       messageDto = {
@@ -80,6 +80,7 @@ export class ChatPanelComponent {
         date: new Date(),
         image: data.image
       };
+      
       this.chatComponentStore.updateMessage(messageDto);
       setTimeout(() => {
         this.scrollToBottom();

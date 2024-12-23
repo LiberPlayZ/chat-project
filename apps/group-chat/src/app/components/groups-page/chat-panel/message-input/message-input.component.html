@@ -5,7 +5,8 @@
     <p-inputGroupAddon>
         <button type="button" pButton icon="pi pi-upload" severity="warning" (click)="fileInput.click()"></button>
     </p-inputGroupAddon>
-    <input #fileInput type="file" accept="image/*" style="display: none" (change)="onFileSelect($event)" />
+    <input #fileInput type="file" maxFileSize="2000000" accept="image/*" style="display: none"
+        (change)="onFileSelect($event)" />
     <input (input)="OnTyping()" type="text" pInputText placeholder="Type a message" [(ngModel)]="message"
         (keyup.enter)="sendMessage()  " />
     <p-inputGroupAddon>

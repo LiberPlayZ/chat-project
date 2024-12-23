@@ -26,6 +26,6 @@ export const createMessagesTableQuery: string = `
         userId  INT NOT NULL ,
         username  VARCHAR(50) NOT NULL ,
         groupId INT NOT NULL ,
-        date TIMESTAMP NOT NULL ,
+        date TIMESTAMP WITH TIME ZONE  NOT NULL ,
         image BYTEA 
       );`;
