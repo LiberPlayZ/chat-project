@@ -14,10 +14,8 @@ export class MessageTemplateComponent implements OnInit {
   imageSrc?: string;
 
   ngOnInit(): void {
-    console.log("enter" + this.image);
     
     if (this.image && this.image !== undefined) {
-      console.log("enter if");
       const base64String = Buffer.from(this.image.data, "binary").toString('base64')
 
       this.imageSrc = `data:image/jpg;base64,${base64String}`;

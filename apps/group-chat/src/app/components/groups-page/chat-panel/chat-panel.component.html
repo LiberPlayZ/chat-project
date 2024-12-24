@@ -1,32 +1,24 @@
 <div class="w-full h-full flex flex-column p-2">
   <div #scrollChatContainer class="flex-1 overflow-y-auto hide-scrollbar">
-    <div *ngIf="(messages | async)?.length === 0">
-      <h1 class="flex align-items-center justify-content-center">
-        No messages available
-      </h1>
-    </div>
-    <div class="messages">
-      <div *ngFor="let msg of messages | async; let i = index">
-        <message-template [username]="msg.username" [text]="msg.text" [date]="msg.date"
-          [connectedUser]="senderUsername | async" [image]="msg.image"></message-template>
-        <!-- <div
-          *ngIf="i + 1 === (messages | async)?.length" (ngAfterViewInit)="scrollToBottom()"
-        >
-       <span #lastElement ></span>
-      </div> -->
-        <!-- <div *ngIf="newMessage && i === (messages | async)?.length - 1">
-          <div class="card flex flex-column align-items-center overflow-hidden">
-            <div class="flex flex-column align-items-center gap-2">
-              <span
-                class="slidedown-icon h-2rem w-2rem bg-primary border-circle inline-flex align-items-center justify-content-center"
-              >
-                <i class="pi pi-arrow-down"></i>
-              </span>
-            </div>
-          </div>
-        </div> -->
+    <ng-container *ngIf="vm$ | async as vm">
+      <div *ngIf="vm.loading ">
+        <div class="card flex justify-content-center ">
+          <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+        </div>
       </div>
-    </div>
+      <div *ngIf="!vm.loading && vm.messages.length === 0 ">
+        <h1 class="flex align-items-center justify-content-center">
+          No messages available
+        </h1>
+      </div>
+      <div class="messages">
+        <div *ngFor="let msg of vm.messages; let i = index">
+          <message-template [username]="msg.username" [text]="msg.text" [date]="msg.date"
+            [connectedUser]="vm.senderUsername" [image]="msg.image"></message-template>
+
+        </div>
+      </div>
+    </ng-container>
   </div>
   <p>{{typingMessage}}</p>
   <div class="">

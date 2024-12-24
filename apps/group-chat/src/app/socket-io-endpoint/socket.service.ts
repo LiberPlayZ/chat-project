@@ -23,7 +23,7 @@ export class SocketIoService {
   }
 
   public joinGroup(groupId: string) {
-    this.socket.emit('joinGroup', groupId, (response: any) => {});
+    this.socket.emit('joinGroup', groupId, (response: any) => { });
   }
   public updateInGroupUsers(usersInGroup: number[], groupName: string) {
     if (usersInGroup.length > 0)
@@ -42,6 +42,7 @@ export class SocketIoService {
       groupId: message.groupid,
       date: message.date,
     };
+
 
     this.socket.emit('sendMessage', messageDto);
   }

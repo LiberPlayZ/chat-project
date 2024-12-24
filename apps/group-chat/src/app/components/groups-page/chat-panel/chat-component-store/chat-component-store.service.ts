@@ -8,6 +8,7 @@ import { SocketIoService } from 'apps/group-chat/src/app/socket-io-endpoint/sock
 export interface ChatStateStore {
   messages: MessageDto[];
   senderUserName: string;
+  loading: boolean
 }
 
 @Injectable()
@@ -19,18 +20,32 @@ export class ChatComponentStore extends ComponentStore<ChatStateStore> {
     super({
       messages: [],
       senderUserName: '',
+      loading: false
     });
   }
   // selectors for all attributes .
 
-  readonly messages$ = this.select((state) => state.messages);
-  readonly senderUsername$ = this.select((state) => state.senderUserName);
+  private readonly messages$ = this.select((state) => state.messages);
+  private readonly senderUsername$ = this.select((state) => state.senderUserName);
+  private readonly loading$ = this.select((state) => state.loading);
+
+  public vm$ = this.select({
+    messages: this.messages$,
+    senderUsername: this.senderUsername$,
+    loading: this.loading$
+  });
+
 
   // updaters for all attributes .
 
   readonly setMessages = this.updater((state, messages: MessageDto[]) => ({
     ...state,
     messages: messages || [],
+  }));
+
+  readonly setLoading = this.updater((state,loading:boolean) => ({
+    ...state,
+    loading: loading,
   }));
 
   readonly addMessage = this.updater((state, newMessage: MessageDto) => ({
@@ -41,14 +56,18 @@ export class ChatComponentStore extends ComponentStore<ChatStateStore> {
   // effects
 
   loadMessages = this.effect((groupId$: Observable<number>) =>
+
     groupId$.pipe(
+      tap(() => this.setLoading(true)),
       switchMap((groupId) =>
+
         this.chatService.getGroupMessages(groupId).pipe(
           tap({
             next: (data: { senderUsername: string; messages: MessageDto[] }) =>
               this.patchState({
                 messages: data.messages,
                 senderUserName: data.senderUsername,
+                loading: false
               }),
             error: () => this.patchState({ messages: [] }),
           })
@@ -74,9 +93,9 @@ export class ChatComponentStore extends ComponentStore<ChatStateStore> {
     groupId.pipe(
       withLatestFrom(this.senderUsername$),
       switchMap(([groupId, senderUsername]) => {
-    
 
-        this.socketService.onTypingEvent(senderUsername,groupId);
+
+        this.socketService.onTypingEvent(senderUsername, groupId);
         return [];
       })
     )

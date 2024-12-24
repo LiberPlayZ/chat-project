@@ -17,8 +17,6 @@ import { Observable } from 'rxjs';
 export class AddGroupDialogComponent implements OnInit {
   @Input() visible: boolean = false;
   @Output() dialogCLose = new EventEmitter<void>();
-  private currentOffset = 0;
-  private currentFilter = '';
   public addGroupForm: FormGroup;
   addGroupInputs!: InputControl[];
   constructor(

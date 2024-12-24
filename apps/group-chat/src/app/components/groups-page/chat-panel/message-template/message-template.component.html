@@ -1,20 +1,18 @@
-<div
-  class="w-full flex m-1"
-  [ngClass]="{ 'justify-content-end': username !== connectedUser }"
->
-  <div
-    [ngClass]="getClassByConnectedUser(username)"
-    class="flex flex-column shadow-2 p-2 mb-3 border-round w-4 align-content-end " style="word-wrap: break-word;"
-  >
+<div class="w-full flex m-1" [ngClass]="{ 'justify-content-end': username !== connectedUser }">
+  <div [ngClass]="getClassByConnectedUser(username)"
+    class="flex flex-column shadow-2 p-2 mb-3 border-round w-4 align-content-end " style="word-wrap: break-word;">
     <div class="flex justify-content-between mb-2">
       <span class="font-bold text-lg">{{ username }}</span>
-      <span class="text-base"> {{ date | date : 'shortTime' }}</span>
+      <span class="text-base"> {{ date | date : 'short' }}</span>
     </div>
 
     <div class="" style="white-space: pre-wrap">
       {{ text }}
     </div>
-    <img *ngIf="image" [src]="imageSrc" alt="Preview" style="max-width: 300px;" />
+    <div *ngIf="image" class="flex align-items-center justify-content-center">
+      <br>
+      <img [src]="imageSrc" alt="Preview" style="max-width: 100%; max-height: 100px;" />
+    </div>
 
   </div>
 </div>

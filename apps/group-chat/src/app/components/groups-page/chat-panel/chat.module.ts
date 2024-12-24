@@ -14,6 +14,9 @@ import { SocketIoService } from '../../../socket-io-endpoint/socket.service';
 import { MessageTemplateComponent } from './message-template/message-template.component';
 import { ChatComponentStoreModule } from './chat-component-store/chat-component-store.module';
 import { ChatFrontendService } from '../../../api-endpoint/chat-frontend.service';
+import { UiComponentsModule } from '@ui-components';
+import { ToastModule } from 'primeng/toast';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
   declarations: [
     ChatPanelComponent,
@@ -32,6 +35,10 @@ import { ChatFrontendService } from '../../../api-endpoint/chat-frontend.service
     InputGroupAddonModule,
     InputTextModule,
     ChatComponentStoreModule,
+    UiComponentsModule,
+    ToastModule,
+    ProgressSpinnerModule,
+    
   ],
   providers: [SocketIoService, ChatFrontendService],
   exports: [ChatPanelComponent],

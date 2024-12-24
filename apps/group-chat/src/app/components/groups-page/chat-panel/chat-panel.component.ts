@@ -12,13 +12,19 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'chat-panel',
   templateUrl: './chat-panel.component.html',
+
 })
 export class ChatPanelComponent {
   private selected_group_id: number | null = null;
   private typingTimeout!: any;
-  messages?: Observable<MessageDto[]>;
-  senderUsername?: Observable<string>;
   typingMessage: string = '';
+  isLoadMessages: boolean = false;
+  stateMessage: string = 'No messages available';
+  public vm$?: Observable<{
+    messages: MessageDto[];
+    senderUsername: string,
+    loading: boolean
+  }>;
 
   @ViewChild('scrollChatContainer') scrollContainer!: ElementRef;
 
@@ -32,6 +38,7 @@ export class ChatPanelComponent {
           if (transferData.event === 'OnGroupNameClick') {
             if (transferData.data) {
               this.loadMessages(transferData.data.id);
+              this.isLoadMessages = true;
             }
           }
           if (transferData.event === 'newMessages') {
@@ -39,6 +46,8 @@ export class ChatPanelComponent {
             if (this.selected_group_id === message.groupId) {
               this.typingMessage = '';
               this.loadMessages(message.groupId);
+              this.isLoadMessages = true;
+
             }
           }
 
@@ -62,15 +71,15 @@ export class ChatPanelComponent {
     }
 
     this.chatComponentStore.loadMessages(this.selected_group_id);
-    this.messages = this.chatComponentStore.messages$;
-    this.senderUsername = this.chatComponentStore.senderUsername$;
-    setTimeout(() => {
-      this.scrollToBottom();
-    }, 500);
+    this.vm$ = this.chatComponentStore.vm$;
+
+    // setTimeout(() => {
+    //   this.scrollToBottom();
+    // }, 500);
   }
 
   handleMessage(data: { message: string, image?: string }) {
-    
+
     let messageDto: MessageDto;
     if (this.selected_group_id) {
       messageDto = {
@@ -80,7 +89,7 @@ export class ChatPanelComponent {
         date: new Date(),
         image: data.image
       };
-      
+
       this.chatComponentStore.updateMessage(messageDto);
       setTimeout(() => {
         this.scrollToBottom();

@@ -6,7 +6,7 @@ import { Response, Request } from 'express';
 
 @Controller('users')
 export class UsersGatewayController {
-  constructor(private readonly userService: UsersGatewayService) {}
+  constructor(private readonly userService: UsersGatewayService) { }
 
   @Post('register')
   public async createUser(@Body() userDto: UserDTO): Promise<any> {
@@ -23,7 +23,7 @@ export class UsersGatewayController {
     const response = await this.userService.forwardLogin(loginDto);
     if (response.token) {
       const expires = new Date();
-      expires.setDate(expires.getDate() + 1); 
+      expires.setDate(expires.getDate() + 1);
       res.cookie('auth_token', response.token, {
         httpOnly: true,
         expires: expires,
