@@ -8,6 +8,7 @@ import { SharedDataService } from '../../../shared';
 import { MessageDto } from '@group-chat/shared-data';
 import { ChatComponentStore } from './chat-component-store/chat-component-store.service';
 import { Observable } from 'rxjs';
+import { ChatStateStore } from './chat-component-store/chat-component-store.service';
 
 @Component({
   selector: 'chat-panel',
@@ -18,13 +19,8 @@ export class ChatPanelComponent {
   private selected_group_id: number | null = null;
   private typingTimeout!: any;
   typingMessage: string = '';
-  isLoadMessages: boolean = false;
-  stateMessage: string = 'No messages available';
-  public vm$?: Observable<{
-    messages: MessageDto[];
-    senderUsername: string,
-    loading: boolean
-  }>;
+
+  public vm$?: Observable<ChatStateStore>
 
   @ViewChild('scrollChatContainer') scrollContainer!: ElementRef;
 
@@ -38,7 +34,6 @@ export class ChatPanelComponent {
           if (transferData.event === 'OnGroupNameClick') {
             if (transferData.data) {
               this.loadMessages(transferData.data.id);
-              this.isLoadMessages = true;
             }
           }
           if (transferData.event === 'newMessages') {
@@ -46,7 +41,6 @@ export class ChatPanelComponent {
             if (this.selected_group_id === message.groupId) {
               this.typingMessage = '';
               this.loadMessages(message.groupId);
-              this.isLoadMessages = true;
 
             }
           }
@@ -78,12 +72,12 @@ export class ChatPanelComponent {
     // }, 500);
   }
 
-  handleMessage(data: { message: string, image?: string }) {
+  handleMessage(data: { message?: string, image?: string }) {
 
     let messageDto: MessageDto;
     if (this.selected_group_id) {
       messageDto = {
-        text: data.message,
+        text: data.message || '',
         username: '',
         groupId: this.selected_group_id,
         date: new Date(),

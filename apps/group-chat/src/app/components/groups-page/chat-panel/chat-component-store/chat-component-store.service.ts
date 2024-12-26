@@ -7,7 +7,7 @@ import { ChatFrontendService } from 'apps/group-chat/src/app/api-endpoint/chat-f
 import { SocketIoService } from 'apps/group-chat/src/app/socket-io-endpoint/socket.service';
 export interface ChatStateStore {
   messages: MessageDto[];
-  senderUserName: string;
+  senderUsername: string;
   loading: boolean
 }
 
@@ -19,14 +19,14 @@ export class ChatComponentStore extends ComponentStore<ChatStateStore> {
   ) {
     super({
       messages: [],
-      senderUserName: '',
+      senderUsername: '',
       loading: false
     });
   }
   // selectors for all attributes .
 
   private readonly messages$ = this.select((state) => state.messages);
-  private readonly senderUsername$ = this.select((state) => state.senderUserName);
+  private readonly senderUsername$ = this.select((state) => state.senderUsername);
   private readonly loading$ = this.select((state) => state.loading);
 
   public vm$ = this.select({
@@ -66,7 +66,7 @@ export class ChatComponentStore extends ComponentStore<ChatStateStore> {
             next: (data: { senderUsername: string; messages: MessageDto[] }) =>
               this.patchState({
                 messages: data.messages,
-                senderUserName: data.senderUsername,
+                senderUsername: data.senderUsername,
                 loading: false
               }),
             error: () => this.patchState({ messages: [] }),

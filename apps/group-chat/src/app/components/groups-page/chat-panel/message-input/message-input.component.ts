@@ -6,7 +6,7 @@ import { ToastService, ToastSeverity } from '@ui-components';
   templateUrl: './message-input.component.html',
 })
 export class MessageInputComponent {
-  @Output() messageSent = new EventEmitter<{ message: string, image?: string }>();
+  @Output() messageSent = new EventEmitter<{ message?: string, image?: string }>();
   @Output() isTyping = new EventEmitter<void>();
   constructor(private toastService: ToastService) { }
 
@@ -41,14 +41,8 @@ export class MessageInputComponent {
 
 
   sendMessage() {
-    if (this.message.trim()) {
-      if (this.selectedImage !== null) {
-        this.messageSent.emit({ message: this.message, image: this.selectedImage.split(',')[1] });
-      }
-      else {
-        this.messageSent.emit({ message: this.message });
-
-      }
+    if (this.message.trim() || this.selectedImage) {
+      this.messageSent.emit({ message: (this.message.trim()) ? this.message : undefined, image: (this.selectedImage) ? this.selectedImage.split(',')[1] : undefined });
       this.message = '';
       this.selectedImage = null;
     }

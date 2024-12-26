@@ -1,7 +1,8 @@
 export const getGroupMessagesQuery = `
 SELECT messages.id,messages.text,messages.userid,messages.username,messages.groupid,messages.date,messages.image
 FROM groups 
-JOIN messages ON messages.id = ANY(groups.messages) WHERE groups.id = $1`;
+JOIN messages ON messages.id = ANY(groups.messages) WHERE groups.id = $1
+ORDER BY messages.id;`;
 
 export const getSenderUserNameQuery = `SELECT username FROM users WHERE id = $1`;
 

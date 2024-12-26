@@ -25,7 +25,7 @@ export class UsersGatewayController {
       const expires = new Date();
       expires.setDate(expires.getDate() + 1);
       res.cookie('auth_token', response.token, {
-        httpOnly: true,
+        httpOnly: true, 
         expires: expires,
       });
     }
