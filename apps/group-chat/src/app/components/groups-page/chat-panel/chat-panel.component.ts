@@ -24,6 +24,9 @@ export class ChatPanelComponent {
 
   @ViewChild('scrollChatContainer') scrollContainer!: ElementRef;
 
+  showScrollDownButton: boolean = false;
+  isScrollingProgrammatically: boolean = false;
+
   constructor(
     private sharedDataService: SharedDataService,
     private chatComponentStore: ChatComponentStore
@@ -67,9 +70,7 @@ export class ChatPanelComponent {
     this.chatComponentStore.loadMessages(this.selected_group_id);
     this.vm$ = this.chatComponentStore.vm$;
 
-    // setTimeout(() => {
-    //   this.scrollToBottom();
-    // }, 500);
+
   }
 
   handleMessage(data: { message?: string, image?: string }) {
@@ -91,12 +92,31 @@ export class ChatPanelComponent {
     }
   }
   handleTyping() {
+
     if (this.selected_group_id)
       this.chatComponentStore.onTyping(this.selected_group_id);
   }
 
+  onScroll(): void {
+    if (this.isScrollingProgrammatically) {
+      // Ignore onScroll logic if scrolling programmatically
+      this.isScrollingProgrammatically = false;
+      return;
+    }
+
+    const container = this.scrollContainer.nativeElement;
+    const atBottom =
+      container.scrollHeight - container.scrollTop === container.clientHeight;
+
+    this.showScrollDownButton = !atBottom;
+  }
+
   scrollToBottom() {
     const container = this.scrollContainer.nativeElement;
+    this.isScrollingProgrammatically = true;
     container.scrollTop = container.scrollHeight;
+    this.showScrollDownButton = false;
+
+
   }
 }

@@ -1,5 +1,5 @@
 <div class="w-full h-full flex flex-column p-2">
-  <div #scrollChatContainer class="flex-1 overflow-y-auto hide-scrollbar">
+  <div #scrollChatContainer class=" relative flex-1 overflow-y-auto hide-scrollbar" (scroll)="onScroll()">
     <ng-container *ngIf="vm$ | async as vm">
       <div *ngIf="vm.loading ">
         <div class="card flex justify-content-center ">
@@ -18,8 +18,15 @@
 
         </div>
       </div>
+
     </ng-container>
+    <div class="flex align-items-center justify-content-center  fixed" style="top: 50%; left: 66%;">
+      <p-button icon="pi pi-arrow-down" [rounded]="true" severity="help" *ngIf="showScrollDownButton"
+        (click)="scrollToBottom()" />
+    </div>
+
   </div>
+
   <p>{{typingMessage}}</p>
   <div class="">
     <message-input (messageSent)="handleMessage($event)" (isTyping)="handleTyping()"></message-input>
