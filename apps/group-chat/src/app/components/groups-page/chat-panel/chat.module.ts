@@ -17,11 +17,14 @@ import { ChatFrontendService } from '../../../api-endpoint/chat-frontend.service
 import { UiComponentsModule } from '@ui-components';
 import { ToastModule } from 'primeng/toast';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ImagePreviewComponent } from './image-preview-component/image-preview.component';
+import { ImageModule } from 'primeng/image';
 @NgModule({
   declarations: [
     ChatPanelComponent,
     MessageInputComponent,
     MessageTemplateComponent,
+    ImagePreviewComponent
   ],
   imports: [
     ButtonModule,
@@ -38,7 +41,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     UiComponentsModule,
     ToastModule,
     ProgressSpinnerModule,
-    
+    ImageModule
+
   ],
   providers: [SocketIoService, ChatFrontendService],
   exports: [ChatPanelComponent],

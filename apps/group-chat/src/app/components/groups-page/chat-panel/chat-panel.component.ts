@@ -19,6 +19,7 @@ export class ChatPanelComponent {
   private selected_group_id: number | null = null;
   private typingTimeout!: any;
   typingMessage: string = '';
+  imageUrl: string | null = null;
 
   public vm$?: Observable<ChatStateStore>
 
@@ -71,6 +72,7 @@ export class ChatPanelComponent {
     this.vm$ = this.chatComponentStore.vm$;
 
 
+
   }
 
   handleMessage(data: { message?: string, image?: string }) {
@@ -82,13 +84,11 @@ export class ChatPanelComponent {
         username: '',
         groupId: this.selected_group_id,
         date: new Date(),
-        image: data.image
+        image: (this.imageUrl) ? data.image : null
       };
 
       this.chatComponentStore.updateMessage(messageDto);
-      setTimeout(() => {
-        this.scrollToBottom();
-      }, 100);
+      this.imageUrl = null;
     }
   }
   handleTyping() {
@@ -117,6 +117,10 @@ export class ChatPanelComponent {
     container.scrollTop = container.scrollHeight;
     this.showScrollDownButton = false;
 
+
+  }
+  hadnleSelectedImage(imageUrl: string) {
+    this.imageUrl = imageUrl;
 
   }
 }

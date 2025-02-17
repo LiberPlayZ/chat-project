@@ -8,6 +8,7 @@ import { ToastService, ToastSeverity } from '@ui-components';
 export class MessageInputComponent {
   @Output() messageSent = new EventEmitter<{ message?: string, image?: string }>();
   @Output() isTyping = new EventEmitter<void>();
+  @Output() isSelectedImage = new EventEmitter<string>();
   constructor(private toastService: ToastService) { }
 
   message: string = '';
@@ -31,11 +32,15 @@ export class MessageInputComponent {
       const reader = new FileReader();
       reader.onload = () => {
         this.selectedImage = reader.result as string;
+        this.isSelectedImage.emit(this.selectedImage);
+
+
 
       };
       reader.readAsDataURL(file);
+      
 
-    }
+    } 
 
   }
 

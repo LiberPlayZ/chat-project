@@ -26,9 +26,13 @@
     </div>
 
   </div>
+  <div *ngIf="imageUrl" class="image-preview">
+    <image-preview [imageUrl]="imageUrl"></image-preview>
+  </div>
 
   <p>{{typingMessage}}</p>
   <div class="">
-    <message-input (messageSent)="handleMessage($event)" (isTyping)="handleTyping()"></message-input>
+    <message-input (messageSent)="handleMessage($event)" (isTyping)="handleTyping() "
+      (isSelectedImage)="hadnleSelectedImage($event)"></message-input>
   </div>
 </div>
